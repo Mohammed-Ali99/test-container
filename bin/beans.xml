@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	
+	<bean id="emp" class="com.global.Employee" init-method="init" destroy-method="cleanUp">
+		<constructor-arg value="20"></constructor-arg>
+		<constructor-arg value="ahmed"></constructor-arg>
+		<constructor-arg value="50000"></constructor-arg>
+		
+		<constructor-arg ref="depart"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="adrs1"/>
+				<ref bean="adrs2"/>
+				<ref bean="adrs3"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="showBeanLifeCycle" class="com.global.ShowBeanLifeCycle"></bean>
+	
+	<!-- 
+	<bean id="emp" class="com.global.Employee">
+		<property name="id" value="20"></property>
+		<property name="name" value="mohammed"></property>
+		<property name="salary" value="20000"></property>
+		<property name="department" ref="depart"></property>
+		<property name="address">
+			<list>
+				<ref bean="adrs1"/>
+				<ref bean="adrs2"/>
+				<ref bean="adrs3"/>
+			</list>
+		</property>	
+	</bean>
+	 -->
+	
+	<bean id="depart" class="com.global.Department">
+		<property name="name" value="CS"></property>
+	</bean>
+
+	<bean id="adrs1" class="com.global.Address">
+		<property name="city" value="cairo"></property>
+	</bean>
+	
+	<bean id="adrs2" class="com.global.Address">
+		<property name="city" value="alex"></property>
+	</bean>
+	
+	<bean id="adrs3" class="com.global.Address">
+		<property name="city" value="shebin"></property>
+	</bean>
+
+
+
+</beans>
+	
